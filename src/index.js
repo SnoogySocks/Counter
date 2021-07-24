@@ -1,12 +1,25 @@
 // The number of times the user clicked
-let numClicks = 0;
+const startingTime = 100;
 
-const timer = document.getElementById("timer");
+const timer = document.querySelector(".text");
 const counter = document.getElementById("counter");
 const button = document.querySelector("button");
 
+const endTimer = () => {
+	button.parentNode.removeChild(button);
+
+	// User results
+	timer.textContent = "You clicked";
+	timer.parentNode.insertAdjacentHTML(
+		"beforeend",
+		/*html*/ `
+					<span class="text">times in ${Math.round(startingTime / 10)}s!</span>
+				`
+	);
+};
+
 const startTimer = () => {
-	let timeLeft = 100;
+	let timeLeft = startingTime;
 	let countDown = setInterval(() => {
 		--timeLeft;
 		timer.textContent = `${Math.floor(timeLeft / 10).toString()}.${
@@ -15,10 +28,7 @@ const startTimer = () => {
 
 		// Exit
 		if (timeLeft <= 0) {
-			// Disable the button
-			button.disabled = true;
-			button.classList.add("disabledButton");
-			button.textContent = "Finished!";
+			endTimer();
 			clearInterval(countDown);
 		}
 	}, 100);

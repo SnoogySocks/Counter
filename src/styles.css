@@ -1,5 +1,6 @@
 :root {
 	--hover-animation-duration: 1s;
+    --background-image-animation-duration: 1s;
 	--translation-offset: -7px;
 	--translation: translate(
 		var(--translation-offset),
@@ -11,13 +12,15 @@
 html {
     height: 100%;
 }
+
 body {
     font-family: "Roboto", sans-serif;
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-image: linear-gradient(to bottom right, seagreen, rgb(20, 83, 177))
+    background-color: seagreen;
+    background-image: linear-gradient(to bottom right, seagreen, rgb(20, 83, 177));
 }
 
 .center-screen {
@@ -57,7 +60,7 @@ body {
 	flex-direction: column;
 }
 
-#timer {
+.text {
     font-size: 3ch;
 }
 

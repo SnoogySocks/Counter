@@ -1,18 +1,18 @@
 :root {
-    --lime-green: rgb(102, 223, 154);
+	--lime-green: rgb(102, 223, 154);
+	--hover-animation-duration: 1s;
+	--translation-offset: -7px;
+	--translation: translate(
+		var(--translation-offset),
+		var(--translation-offset)
+	);
+	--click-animation-duration: 0.2s;
 }
 
 body {
+    font-family: "Roboto", sans-serif;
 	background-color: seagreen;
 	margin: 0px;
-}
-
-.container {
-    background-color: white;
-    text-align: center;
-    padding: 30px;
-    width: 33%;
-	height: 50%;
 }
 
 .center-screen {
@@ -24,31 +24,78 @@ body {
 	margin: auto;
 }
 
-.container h1 {
+#container {
+	display: grid;
+	grid-template-rows: 1fr 4fr 1fr;
+	text-align: center;
+	place-items: center;
+	background-color: white;
+	padding: 30px;
+	width: 300px;
+	height: 400px;
+	transition: filter var(--hover-animation-duration);
+}
+
+#container:hover {
+	filter: drop-shadow(0 0 1rem black);
+}
+
+#container h1 {
+	font-size: 4ch;
+	top: 20px;
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#timer {
     font-size: 3ch;
-    top: 20px;
 }
 
 #counter {
-    font-size: 6em;
-    color: var(--lime-green);
+	font-size: 6em;
+    font-weight: 700;
+	color: var(--lime-green);
+	transition: color var(--click-animation-duration);
 }
 
 button {
-    font-size: medium;
-    font-weight: 600;
-    background-color: var(--lime-green);
-    border-color: transparent;
-    width: 90px;
-    height: 40px;
-    transition: background-color 0.2s;
+    font-family: inherit;
+	font-size: medium;
+    font-size: 14px;
+	font-weight: 600;
+	background-color: var(--lime-green);
+	border-color: transparent;
+	width: 90px;
+	height: 40px;
+	-webkit-transition: var(--hover-animation-duration) ease-in-out;
+	-moz-transition: var(--hover-animation-duration) ease-in-out;
+	-o-transition: var(--hover-animation-duration) ease-in-out;
+	transition: var(--hover-animation-duration) ease-in-out,
+		filter var(--hover-animation-duration),
+		background-color var(--click-animation-duration);
 }
 
-button:active {
-    background-color: seagreen;
+button:hover {
+	-webkit-transform: var(--translation);
+	-moz-transform: var(--translation);
+	-o-transform: var(--translation);
+	-ms-transform: var(--translation);
+	transform: var(--translation);
+	filter: drop-shadow(
+		calc(-1 * var(--translation-offset))
+			calc(-1 * var(--translation-offset)) 7px black
+	);
 }
 
-.container p {
-    position: absolute;
-    bottom: 20px;
+.button:active {
+	background-color: seagreen;
+}
+
+#container p {
+	font-size: 13px;
 }

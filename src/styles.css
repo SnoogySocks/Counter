@@ -1,5 +1,4 @@
 :root {
-	--lime-green: rgb(102, 223, 154);
 	--hover-animation-duration: 1s;
 	--translation-offset: -7px;
 	--translation: translate(
@@ -9,10 +8,16 @@
 	--click-animation-duration: 0.2s;
 }
 
+html {
+    height: 100%;
+}
 body {
     font-family: "Roboto", sans-serif;
-	background-color: seagreen;
-	margin: 0px;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(to bottom right, seagreen, rgb(20, 83, 177))
 }
 
 .center-screen {
@@ -32,7 +37,7 @@ body {
 	background-color: white;
 	padding: 30px;
 	width: 300px;
-	height: 400px;
+	height: 450px;
 	transition: filter var(--hover-animation-duration);
 }
 
@@ -59,7 +64,7 @@ body {
 #counter {
 	font-size: 6em;
     font-weight: 700;
-	color: var(--lime-green);
+	color: lightseagreen;
 	transition: color var(--click-animation-duration);
 }
 
@@ -68,10 +73,10 @@ button {
 	font-size: medium;
     font-size: 14px;
 	font-weight: 600;
-	background-color: var(--lime-green);
+	background-color: lightseagreen;
 	border-color: transparent;
-	width: 90px;
-	height: 40px;
+	width: 300px;
+	height: 100px;
 	-webkit-transition: var(--hover-animation-duration) ease-in-out;
 	-moz-transition: var(--hover-animation-duration) ease-in-out;
 	-o-transition: var(--hover-animation-duration) ease-in-out;
@@ -92,8 +97,12 @@ button:hover {
 	);
 }
 
-.button:active {
-	background-color: seagreen;
+button:active {
+	background-color: rgb(32, 114, 110);
+}
+
+.disabledButton {
+    background-color: rgba(32, 114, 110, 0.397);
 }
 
 #container p {

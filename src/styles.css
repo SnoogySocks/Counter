@@ -1,0 +1,54 @@
+:root {
+    --lime-green: rgb(102, 223, 154);
+}
+
+body {
+	background-color: seagreen;
+	margin: 0px;
+}
+
+.container {
+    background-color: white;
+    text-align: center;
+    padding: 30px;
+    width: 33%;
+	height: 50%;
+}
+
+.center-screen {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.container h1 {
+    font-size: 3ch;
+    top: 20px;
+}
+
+#counter {
+    font-size: 6em;
+    color: var(--lime-green);
+}
+
+button {
+    font-size: medium;
+    font-weight: 600;
+    background-color: var(--lime-green);
+    border-color: transparent;
+    width: 90px;
+    height: 40px;
+    transition: background-color 0.2s;
+}
+
+button:active {
+    background-color: seagreen;
+}
+
+.container p {
+    position: absolute;
+    bottom: 20px;
+}
